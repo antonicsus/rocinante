@@ -1,0 +1,29 @@
+body {
+  background-color: #444;
+  color: #777;
+	font-family: 'Times New Roman';
+  width: 800px;
+  padding: 0px 10px;
+  margin: 0px auto;
+}
+
+h1, h2 {
+  color: #f27b40;
+  padding: 10px 40px;
+}
+
+h1 {
+  padding: 0px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+p {
+  padding: 0px 60px;
+}
+
+footer {
+  text-align: center;
+  color: #666;
+  padding-top: 30px;
+}
