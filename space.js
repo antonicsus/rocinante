@@ -1,7 +1,7 @@
 function tSpace(w, h) {
   this.width = w;
   this.height = h;
-  this.areaSize = 400;
+  this.areaSize = CANVAS_SIZE / 2;
   this.areas = [];
   this.wk = this.width / this.areaSize;
   this.hk = this.height / this.areaSize;
@@ -31,7 +31,9 @@ tSpace.prototype.zone = function(posX, posY, sizeX, sizeY) {
 
   for (j=0; j<=stepsY; j++) {
     for (i=0; i<=stepsX; i++) {
-      var areaObjects = this.areas[this.wk*(startY+j)+(startX+i)].objects;
+      var curX = (startX+i < this.wk) ? (startX+i) : (startX+i - this.wk);
+      var curY = (startY+j < this.hk) ? (startY+j) : (startY+j - this.hk);
+      var areaObjects = this.areas[this.wk*curY+curX].objects;
       for (n in areaObjects) {
         var orig = areaObjects[n];
         var obj = new tStaticObject(orig.x, orig.y, orig.lines);

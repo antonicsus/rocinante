@@ -36,10 +36,10 @@ tShip.prototype.calcForm = function(x, y, centerX, centerY) {
 }
 
 tShip.prototype.borders = function() {
-  if (this.x < width/2)   { this.x = (WORLD_SIZE-width/2)-1; }
-  if (this.y < height/2)  { this.y = (WORLD_SIZE-height/2)-1; }
-  if (this.x > WORLD_SIZE-width/2)  { this.x = width/2; }
-  if (this.y > WORLD_SIZE-height/2) { this.y = height/2; }
+  if (this.x < 0) { this.x = WORLD_SIZE-1; }
+  if (this.y < 0) { this.y = WORLD_SIZE-1; }
+  if (this.x > WORLD_SIZE-1) { this.x = 0; }
+  if (this.y > WORLD_SIZE-1) { this.y = 0; }
 }
 
 tShip.prototype.update = function() {
@@ -57,10 +57,10 @@ tShip.prototype.showAt = function(posX, posY) {
   if (this.thrusting) {
     beginShape();
     for (i=-5; i <=5; i++) {
-      var updated = this.calcForm(i, -random(17-abs(i)), posX, posY);
+      var updated = this.calcForm(i, -random(17-abs(i*2)), posX, posY);
       vertex(updated[0], updated[1]);
     }
-    endShape(CLOSE);
+    endShape();
     this.thrusting = false;
   }
   fill(BACK_COLOR);

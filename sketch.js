@@ -2,16 +2,16 @@ var space;
 var ship;
 var cam;
 
-var WORLD_SIZE = 16000; // + canvasSize == actual size
-                        // but for can not be > canvas, actually > 1600
-                        // should be reworked, maybe
+var WORLD_SIZE = 16000; // shouldn't be < canvasSize
 
+var CANVAS_SIZE = 800;
 var BACK_COLOR = '#444';
 var LINES_COLOR = 'white';
 var STARS_COLOR = '#BBB';
 
 function setup() {
-  createCanvas(800, 800).parent('animation');
+  createCanvas(CANVAS_SIZE, CANVAS_SIZE).parent('animation');
+  WORLD_SIZE -= WORLD_SIZE % CANVAS_SIZE;
   space = new tSpace(WORLD_SIZE, WORLD_SIZE);
   ship = new tShip();
   cam = new tCamera(width, height, 0, 0, space);

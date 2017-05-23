@@ -8,6 +8,8 @@ function tCamera(sizeX, sizeY, posX, posY, space) {
 tCamera.prototype.track = function(body) {
   this.x = body.x - this.width/2;
   this.y = body.y - this.height/2;
+  if (this.x < 0) { this.x += space.width; }
+  if (this.y < 0) { this.y += space.height; }
   body.showAt(this.width/2, this.height/2);
 }
 
