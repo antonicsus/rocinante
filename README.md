@@ -1,3 +1,3 @@
 # rocinante v0.2
 
-[current state]: everything will be added later.
+[current state]: asteroids will be added later.
